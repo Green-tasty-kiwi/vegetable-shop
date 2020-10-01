@@ -8,6 +8,11 @@ const path = require('path');
 
 const exphbs = require('express-handlebars');
 const FileStore = require('session-file-store')(session);
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize('shop_db', 'admin', 'admin', {
+    dialect: 'postgres',
+});
+const viewControllers = require('./app/routes');
 
 const sessionSettings = {
     store: new FileStore({}),
@@ -41,12 +46,8 @@ app.use(session(sessionSettings));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function (request, response) {
-    response.render('index');
-});
-
 app.use('/public', express.static(path.join(__dirname, 'public')));
-
+app.use(viewControllers);
 app.listen(port, () => {
     console.log(`App is listening at http://localhost:${port}`);
 });

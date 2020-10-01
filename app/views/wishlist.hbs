@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row no-gutters slider-text align-items-center justify-content-center">
 			<div class="col-md-9 ftco-animate text-center">
-				<p class="breadcrumbs"><span class="mr-2"><a href="/index">Home</a></span> <span>Wishlist</span></p>
+				<p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Wishlist</span></p>
 				<h1 class="mb-0 bread">My Wishlist</h1>
 			</div>
 		</div>
@@ -30,7 +30,7 @@
 								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod">
-									<div class="img" style="background-image:url(images/product-1.jpg);"></div>
+									<div class="img" style="background-image:url(/public/images/product-1.jpg);"></div>
 								</td>
 
 								<td class="product-name">
@@ -54,7 +54,7 @@
 								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod">
-									<div class="img" style="background-image:url(images/product-2.jpg);"></div>
+									<div class="img" style="background-image:url(/public/images/product-2.jpg);"></div>
 								</td>
 
 								<td class="product-name">
@@ -78,7 +78,7 @@
 								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod">
-									<div class="img" style="background-image:url(images/product-3.jpg);"></div>
+									<div class="img" style="background-image:url(/public/images/product-3.jpg);"></div>
 								</td>
 
 								<td class="product-name">
@@ -102,7 +102,7 @@
 								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod">
-									<div class="img" style="background-image:url(images/product-4.jpg);"></div>
+									<div class="img" style="background-image:url(/public/images/product-4.jpg);"></div>
 								</td>
 
 								<td class="product-name">
@@ -126,7 +126,7 @@
 								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod">
-									<div class="img" style="background-image:url(images/product-5.jpg);"></div>
+									<div class="img" style="background-image:url(/public/images/product-5.jpg);"></div>
 								</td>
 
 								<td class="product-name">
@@ -150,7 +150,7 @@
 								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod">
-									<div class="img" style="background-image:url(images/product-6.jpg);"></div>
+									<div class="img" style="background-image:url(/public/images/product-6.jpg);"></div>
 								</td>
 
 								<td class="product-name">
@@ -196,4 +196,39 @@
 	</div>
 </section>
 
-{{productQuantity}}
+<script>
+	$(document).ready(function () {
+
+		var quantity = 0;
+		$('.quantity-right-plus').click(function (e) {
+
+			// Stop acting like a button
+			e.preventDefault();
+			// Get the field name
+			var quantity = parseInt($('#quantity').val());
+
+			// If is not undefined
+
+			$('#quantity').val(quantity + 1);
+
+
+			// Increment
+
+		});
+
+		$('.quantity-left-minus').click(function (e) {
+			// Stop acting like a button
+			e.preventDefault();
+			// Get the field name
+			var quantity = parseInt($('#quantity').val());
+
+			// If is not undefined
+
+			// Increment
+			if (quantity > 0) {
+				$('#quantity').val(quantity - 1);
+			}
+		});
+
+	});
+</script>
